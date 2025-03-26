@@ -1,2 +1,2 @@
 # PAYMENTSCHEDULA
-I have some clients I sell some wifi service to, they can either pay 1000 for monthly service or 250 for weekly service. I had trouble managing their payment schedules, so I came up with this project. 
+I have some clients I sell some wifi service to, they can either pay 1000 for monthly service or 250 for weekly service. I had trouble managing their payment schedules, so I came up with this project. In the website, you can add new clients names, their payment date, amount paid, house numbers and mobile numbers. depending on the amount paid, you will see the expiry date. This has made work easier, I have it hosted locally. I will update it if need be. Feel free to add features or recommend any.
