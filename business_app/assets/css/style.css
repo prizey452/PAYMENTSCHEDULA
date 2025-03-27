@@ -2,7 +2,7 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
-    margin: 0;
+    margin: 20px; /* Added 20px margin */
     padding: 0;
 }
 
@@ -27,10 +27,7 @@ table {
 }
 
 table, th, td {
-    border: 1px solid #ddd;
-}
-
-th, td {
+    border: 1px solid black; /* Changed border color */
     padding: 10px;
     text-align: left;
 }
@@ -83,7 +80,7 @@ td {
     background-color: #c82333;
 }
 
-input[type="text"], input[type="date"], select {
+input[type="text"], input[type="number"], input[type="date"], select {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -142,8 +139,35 @@ td .btn {
         width: 100%;
         padding: 10px;
     }
-    
+
     h1 {
         font-size: 18px;
     }
+}
+
+.reminder-container {
+    margin-bottom: 20px;
+}
+
+.reminder-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.reminder-expired {
+    background-color: #ffebee; /* Light red */
+    border: 1px solid #ef9a9a;
+    color: #d32f2f;
+}
+
+.reminder-expiring {
+    background-color: #fff3e0; /* Light orange */
+    border: 1px solid #ffb74d;
+    color: #e65100;
+}
+
+.reminder-item strong {
+    display: block;
+    margin-bottom: 5px;
 }
