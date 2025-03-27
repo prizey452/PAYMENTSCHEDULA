@@ -41,6 +41,34 @@ if ($result) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Client List</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <style type="text/css">
+        .reminder-container {
+    margin-bottom: 20px;
+}
+
+.reminder-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.reminder-expired {
+    background-color: #ffebee; /* Light red */
+    border: 1px solid #ef9a9a;
+    color: #d32f2f;
+}
+
+.reminder-expiring {
+    background-color: #fff3e0; /* Light orange */
+    border: 1px solid #ffb74d;
+    color: #e65100;
+}
+
+.reminder-item strong {
+    display: block;
+    margin-bottom: 5px;
+}
+    </style>
 </head>
 <body>
 
@@ -63,7 +91,7 @@ if ($result) {
                 <div class="reminder-item reminder-<?php echo $reminder['type']; ?>">
                     <strong><?php echo htmlspecialchars($reminder['name']); ?></strong>
                     Phone: <?php echo htmlspecialchars($reminder['phone']); ?><br>
-                    Service <?php echo ($reminder['type'] == 'expired') ? 'expired' : 'expires'; ?> on <?php echo htmlspecialchars($reminder['expiry']); ?>.
+                    Service <?php echo ($reminder['type'] == 'expires') ? 'expires' : 'expires'; ?> on <?php echo htmlspecialchars($reminder['expiry']); ?>.
                 </div>
             <?php endforeach; ?>
         </div>
