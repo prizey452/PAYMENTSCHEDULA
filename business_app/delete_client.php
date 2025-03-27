@@ -1,18 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Client</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+<?php
+include('config/db.php');
 
-<div class="container">
-    <a href="view_clients.php" class="home-btn">Home</a>
-    <h1>Delete Client</h1>
-    <!-- Confirmation message goes here -->
-</div>
+if (isset($_GET['id'])) {
+    $client_id = $_GET['id'];
 
-</body>
-</html>
+    // Delete related payments first
+    $delete_payments_sql = "DELETE FROM Payments WHERE client_id = '$client_id'";
+    if ($conn->query($delete_payments_sql) === TRUE) {
+        // Now delete the client
+        $delete_client_sql = "DELETE FROM Clients WHERE id = '$client_id'";
+        if ($conn->query($delete_client_sql) === TRUE) {
+            echo "<div class='alert alert-success'>Client and related payments deleted successfully!</div>";
+            header('Location: view_clients.php');
+            exit();
+        } else {
+            echo "<div class='alert alert-error'>Error deleting client: " . $conn->error . "</div>";
+        }
+    } else {
+        echo "<div class='alert alert-error'>Error deleting payments: " . $conn->error . "</div>";
+    }
+
+} else {
+    echo "<div class='alert alert-error'>Client not found.</div>";
+    exit();
+}
+
+$conn->close();
+?>
